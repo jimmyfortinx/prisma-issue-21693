@@ -1,0 +1,26 @@
+{
+  "name": "prisma-issue-21693",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "migration": "cd database && knex migrate:latest",
+    "migration:make": "cd database && knex migrate:make",
+    "migration:rollback": "cd database && knex migrate:rollback",
+    "generate:prisma": "prisma format && prisma generate",
+    "start:docker": "docker-compose -p test -f docker-compose.yml up -d",
+    "start": "yarn generate:prisma && yarn ts-node index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "20.8.10",
+    "dotenv": "16.3.1",
+    "prisma": "5.5.2",
+    "ts-node": "10.9.1",
+    "typescript": "5.2.2"
+  },
+  "dependencies": {
+    "@prisma/client": "5.5.2",
+    "knex": "3.0.1",
+    "pg": "8.11.3"
+  }
+}
